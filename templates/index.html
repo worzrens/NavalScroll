@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet"  href="{{ url_for('static', filename='css/modale.css') }}">
+<link rel="stylesheet"  href="{{ url_for('static', filename='css/pop.css') }}">
+
+
+</head>
+<body>
+    <div>
+        Authentification:
+        <a href="{{ url_for('button2') }}">Admin's Butt</a>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </div>
+    
+    <p></p> <p></p> <p></p> <p></p> <p></p> <p></p> 
+      
+    
+    
+    <tr>
+    <td><input type="submit" name="Button User" value="User Button"></td>
+    <td><input type="submit" name="Button Admin" value="Admin Button"></td>
+      </tr>
+
+<button id="myBtnA">Open Modal A</button>
+<button id="myBtnF">Open Modal F</button>
+
+<div id="myModalA" class="modal">
+  <div class="modal-content">
+    <div class="modal-headerA">
+      <span class="close">&times;</span>
+      <h2>goood</h2>
+    </div>
+    <div class="modal-body">
+      <p>accept</p>
+    </div>
+    <div class="modal-footerA">
+      <h3>gooood</h3>
+    </div>
+  </div>
+</div>
+
+<div id="myModalF" class="modal">
+  <div class="modal-content">
+    <div class="modal-headerF">
+      <span class="close">&times;</span>
+      <h2>bad</h2>
+    </div>
+    <div class="modal-body">
+      <p>fail</p>
+    </div>
+    <div class="modal-footerF">
+      <h3>baaad</h3>
+    </div>
+  </div>
+</div>
+
+
+<h2>Popup</h2>
+
+<div class="popup" onclick="popup()">Click me to toggle the popup!
+  <span class="popuptext" id="myPopup">A Simple Popup!</span>
+</div>
+
+<script src="{{ url_for('static', filename='js/modal.js') }}" ></script>
+</body>
+</html>

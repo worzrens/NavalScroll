@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title></title>
+ 
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ 
+    <script src="../static/js/jquery-1.11.2.js"></script>
+ 
+ 
+</head>
+ 
+<body>
+ <button ><a href="{{ url_for('posts') }}">Show post</a></button>
+    <div class="container">
+       <!-- <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Add Item</a>
+                    </li>
+                    <li role="presentation"><a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>  -->
+        <section>
+            <form class="form-horizontal" method="post" action="/add">
+                <fieldset>
+ 
+                    <!-- Form Name -->
+                    <legend>Add post</legend>
+ 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">User ID (временно)</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="inputID" type="text" class="form-control input-md">
+                        </div>
+                    </div>
+ 
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost">Post</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="inputDescription"></textarea>
+                        </div>
+                    </div>
+ 
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+                        </div>
+                    </div>
+ 
+                </fieldset>
+            </form>
+   <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+ 
+        {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+ 
+            {% if "Error" in message[1]: %}
+                <div class="alert alert-warning">
+                {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </section>
+
+ 
+    </div>
+</body>
+ 
+</html>

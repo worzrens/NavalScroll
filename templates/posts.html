@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<table style="border-collapse:collapse;" border="2" bordercolor="black" cellpadding="5" cellspacing="5" >
+    <button><a href="{{ url_for('add') }}">Add post</a></button>
+            
+    {% for a in data_names %}
+        <th style="background-color:Tomato ">{{ a }}</th>
+     {% endfor %}
+    
+    {% for row in data %}
+        <tr>
+        {% for d in row %}
+            <td style="background-color: PowderBlue ">{{ d }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+    
+</body>
+</html>
